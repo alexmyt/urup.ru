@@ -1,0 +1,240 @@
+﻿$primary-color: #0093DD;
+$navbar-border: 1px solid #fff;
+$citizens-bg: #00873a;
+$business-bg: #027AC5;
+$tourists-bg: #c85000;
+
+@import "navigation";
+
+
+html { 
+  background: url(/images/bg1.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+body{
+  background-color:transparent;
+}
+
+footer{
+  margin-bottom: 0;
+  @media (min-width: 768px) {
+    margin-bottom: 75vh;
+  }
+}
+
+.container-fluid {
+  max-width: 90%;
+}
+
+
+section#content{
+  margin-top: 200px;
+  &>div{
+    background: rgba(240,240,240,0.94);
+    border-top: 3px solid $business-bg;
+  }
+}
+
+h1,h2,h3,h4{
+  font-family: Roboto,sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: .01em;
+  text-transform: uppercase;
+  color: #3d3d3d;
+}
+
+a[href^="tel:"] {
+  color: orange;
+  text-decoration: none;
+  &:before {
+    content: "\260e";
+    margin-left: 1em;
+    margin-right: 0.5em;
+  }
+}
+
+form {
+  margin-top: 1em;
+}
+
+.pageHeader{
+  margin-top: 2em;
+  padding-bottom: 1rem;
+  display: flex;
+  border-bottom: 1px solid #b7b7b7;
+  
+  h1 {
+    font-family: Roboto,sans-serif;
+    &:before {
+      position: relative;
+      top: -1px;
+      float: left;
+      width: 1.5rem;
+      content: "\3009";
+      font-family: arial;
+      color: $business-bg;
+    }
+    
+    small{
+      font-size: 60%;
+    }
+  }
+  
+  .shareIcons{
+    font-size: 1.55rem;
+  }
+}
+
+
+/* Business, Organisations */
+#organisationMap{
+  height: 250px;
+  width: auto;
+}
+
+dl.organisationData{
+  dd[itemprop="address"]{
+    font-weight: 700;
+    font: 18px/22px 'SuisseCond','Arial Narrow',Helvetica,Arial,sans-serif;    
+  }
+  
+  a[itemprop="telephone"]{
+    white-space: nowrap;
+    font: 18px/22px 'SuisseCond','Arial Narrow',Helvetica,Arial,sans-serif;
+    margin-left: -1em;
+  }
+  
+  span.organisationCategory{
+    :last-child:after{
+      content: none;
+    }
+    
+    :after{
+      color: #a0a0a0;
+      content: '\00A0•\0020';
+    }
+  }
+}
+
+
+.card{
+  background:#FFF;
+  display: block;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  border:1px solid #AAA;
+  border-bottom:3px solid #BBB;
+  padding:0px;
+  margin-top: 3em;
+  margin-bottom: 3em;
+  overflow:hidden;
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  font-family: 'Roboto', sans-serif;
+  -webkit-transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  h3{
+    display: block;
+    overflow: hidden;
+    width:100%;
+    background-color:#2196F3;
+    color:#FFFFFF;
+    border-bottom:3px solid #BBB;
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    font-family: 'Roboto', sans-serif;
+    padding:5px 1em;
+    margin-top:0px;
+    -webkit-transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  }
+  
+  p {
+    margin: 1em;
+  }
+}
+
+
+.testimonial-card{
+  .card-up{
+    overflow: hidden;
+    height: 30px;
+  }
+  .card-icon{
+    overflow: hidden;
+    height: 60px;
+  }
+  
+  .card-icon{
+    border-radius: 50%;
+    width: 60px;
+    margin: -25px auto 0;
+    border: 5px solid #fff;
+    background: #FFF;
+    
+    img{
+    }
+  }
+
+  .card-title{
+    text-align: center;
+    margin-top: -10px;      
+  }
+  
+  hr {
+    margin: 10px;
+  }
+  
+  ul {
+    margin: 10px;
+    
+    li{
+      list-style: none;
+      
+      span {
+        float: right;
+      }
+    }
+  }
+}
+
+
+.inlineSearchWidget{
+  border: 1px solid #c5c5c5;
+  background: white;
+  position: absolute;
+  cursor: pointer;
+  list-style: none;
+  padding: 0;
+  z-index: 100;
+  
+  li.menu-item{
+      height: 80px;
+      border: 1px solid #ececf9;
+      font-size: 14px;
+      height: auto;
+      font-weight: 600;
+      
+      a{
+        //display: block;
+        
+        &:hover{
+          text-decoration: none;
+        }
+      }
+
+      span{
+        //display: block;
+        font-weight: 100;
+      }
+      
+  }
+
+}

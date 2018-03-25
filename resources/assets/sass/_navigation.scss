@@ -1,0 +1,213 @@
+﻿@mixin navbar-colored-menu($color){
+  background: $color;
+
+  &.open>a, ul.dropdown-menu {
+    background: $color;
+  }
+}
+
+.navbar-custom {
+  border-color: transparent;
+  padding: 0;
+  border-bottom: $navbar-border;
+  background: rgba(237,237,237,0.88);
+  @media (max-width: 767px) {
+    background-color:transparent;
+    border-bottom: none;
+  }
+
+  .navbar-header{
+    width:24.8%;
+  }
+
+  .navbar-brand {
+    color: $primary-color;
+    font-size: 2em;
+    font-family: "Kaushan Script", "Helvetica Neue", Helvetica, Arial, cursive;
+    display: block;
+    @media (max-width: 767px) {
+      display: none;
+    }
+  }
+
+  .two-rows-nav{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .tool-bar{
+    float:left;
+    //width: 75%;
+    font-family: "Century Gothic", Futura, sans-serif;
+    font-size: 0.833em;
+    
+    border-left: $navbar-border;
+    border-bottom: $navbar-border;
+    
+    ul{
+      list-style: none;
+    }
+    
+    ul.navbar-nav{
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      //width: 100%;
+      clear: none;
+      
+      li{
+        float: left;
+        padding: 0 15px 0 0;
+        font-size: 20px;
+
+        &.last{
+          border-left: $navbar-border;
+          padding-left: 15px;
+        }
+        
+
+      }
+
+    }
+
+    .nav-social{
+      font-size: 14px;
+    }
+    
+    .nav-search{
+    }
+   
+  }
+  
+  .navbar-nav{
+    //width: 75%;
+
+    &>.open>a {
+      color: white;
+      &:hover,&:focus {
+        color: #fed136;
+        outline: none;
+      }
+    }
+    
+    li{
+      border-left: $navbar-border;
+      width: 33.33%;
+      @media (max-width: 767px) {
+        width: 100%;
+      }
+      
+      ul.dropdown-menu{
+        border: $navbar-border;
+        li {
+          width: 100%;
+          border: none;
+        }
+      }
+      
+      a, .dropdown-menu li a {
+        font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        text-transform: uppercase;
+        font-weight: 400;
+        letter-spacing: 1px;
+        color: white !important;
+        background: transparent;
+        
+        &:hover,&:focus {
+          color: #fed136;
+          outline: none;
+        }
+      }
+      
+      
+      &.menu-citizens {
+        @include navbar-colored-menu($citizens-bg);
+      }
+      
+      &.menu-business, &.menu-business.open {
+        @include navbar-colored-menu($business-bg);
+      }
+      
+      &.menu-tourists, &.menu-tourists.open {
+        @include navbar-colored-menu($tourists-bg);
+      }
+    }
+  }
+
+  .navbar-brand:hover,
+  .navbar-brand:focus,
+  .navbar-brand:active,
+  .navbar-brand.active {
+    color: #fec503;
+  }
+  .navbar-collapse {
+    border-color: rgba(255, 255, 255, 0.02);
+  }
+  .navbar-toggler {
+    background-color: #fed136;
+    border-color: #fed136;
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    color: white;
+    font-size: 12px;
+  }
+  .navbar-toggler:hover,
+  .navbar-toggler:focus {
+    background-color: #fed136;
+  }
+  
+}
+
+
+/*
+.navbar-custom .nav li a {
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 1px;
+  color: white;
+}
+.navbar-custom .nav li a:hover,
+.navbar-custom .nav li a:focus {
+  color: #fed136;
+  outline: none;
+}
+.navbar-custom .navbar-nav > .active > a {
+  border-radius: 0;
+  color: white;
+  background-color: #fed136;
+}
+.navbar-custom .navbar-nav > .active > a:hover,
+.navbar-custom .navbar-nav > .active > a:focus {
+  color: white;
+  background-color: #fec503;
+}
+
+@media (min-width: 768px) {
+  .navbar-custom {
+    padding: 0;
+    -webkit-transition: padding 0.3s;
+    -moz-transition: padding 0.3s;
+    transition: padding 0.3s;
+    border-bottom: $navbar-border;
+  }
+  .navbar-custom .navbar-brand {
+    font-size: 2em;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+  .navbar-custom .navbar-nav > .active > a {
+    border-radius: 3px;
+  }
+}
+@media (min-width: 768px) {
+  .navbar-custom.affix {
+    background-color: #222222;
+    padding: 10px 0;
+  }
+  .navbar-custom.affix .navbar-brand {
+    font-size: 1.5em;
+  }
+}
+*/

@@ -46,11 +46,12 @@
     <body id="page-top" class="index">
     <div id="wrapper">
         @include('layouts.partials._navigation')
+    </div>
     
         @yield('content')
     
         @include('layouts.partials._footer')
-    </div>
+        
     @stack('footer_js')
     {{-- Load the application scripts --}}
     @if (app()->isLocal())

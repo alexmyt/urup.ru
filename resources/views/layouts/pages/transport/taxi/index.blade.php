@@ -1,6 +1,7 @@
 ﻿@extends('layouts.master')
 @section('content')
-  <section id="content"><div class="container">
+<section id="content">
+  <div class="container">
     @include('layouts.partials._header',['headerText'=>'Все службы такси Урюпинска'])
     
     <table class="table table-striped table-responsive-sm">
@@ -30,22 +31,6 @@
       </tbody>
 
     </table>
-{{--
-    <div class="row">
-    @foreach($allTaxiServices as $taxiService)
-      <div class="col-md-6 col-sm-12">
-        <div class="card taxi-card" itemscope itemtype="http://schema.org/LocalBusiness">
-          <h3 itemprop="name"><i class="fa fa-taxi a-bg-green"></i> {{$taxiService->name}}</h3>
-            <p class="description taxi-descriprion"><a href="{{route('taxi.show',[$taxiService->slug])}}">{{$taxiService->description}}</a></p>
-            <p class="phone taxi-phones">
-              @foreach($taxiService->phones as $phone)
-                <span itemprop="telephone" class="text-nowrap"><a href="{{phone($phone,'RU',\libphonenumber\PhoneNumberFormat::RFC3966)}}">{{phone($phone,'RU',\libphonenumber\PhoneNumberFormat::NATIONAL)}}</a></span>
-              @endforeach
-            </p>
-        </div>
-      </div>
-    @endforeach
-    </div>
-  </div></section>  
---}}
+  </div>
+</section>
 @endsection

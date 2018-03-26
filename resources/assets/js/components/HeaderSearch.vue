@@ -1,5 +1,5 @@
 <template>
-   <div class="nav-search w-50">
+   <div class="nav-search align-self-center order-1 order-md-2 my-2 my-md-0">
       <input id="headerSearch" class="form-control search-query" type="search" autocomplete="off" v-model="header_search" placeholder="Поиск" aria-label="Поиск">
    
       <ul v-cloak v-if="search_results" v-bind:style="{width: width+'px'}" class="inlineSearchWidget">

@@ -23,7 +23,7 @@ class OrganisationController extends Controller
           array('id'=>77,'name'=>'Туристические базы','icon'=>'https://maxcdn.icons8.com/office/PNG/40/Travel/camping_tent-40.png'),
 
         );
-        return view('layouts.pages.business')->with('cards',collect($cards));
+        return view('layouts.pages.business.index')->with('cards',collect($cards));
     }
 
     /**
@@ -61,13 +61,13 @@ class OrganisationController extends Controller
             'emails'        => array(),
             'urls'          => array()
         );
-        
+
         foreach ($viewData['organisation']->contacts as $contact){
             if($contact->contact_type == 'phone'){
                 $viewData['phones'][] = $contact->contact;
                 continue;
             }
-            
+
             if($contact->contact_type == 'email'){
                 $viewData['emails'][] = $contact->contact;
                 continue;
@@ -75,7 +75,7 @@ class OrganisationController extends Controller
 
             if($contact->contact_type == 'uri'){
                 $link = $contact->contact;
-                
+
                 $viewData['urls'][] = $link;
             }
         }

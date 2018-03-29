@@ -783,16 +783,16 @@
         },
         {
             "name": "giggsey/libphonenumber-for-php",
-            "version": "8.9.1",
+            "version": "8.9.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/giggsey/libphonenumber-for-php.git",
-                "reference": "f50b45cc50d9058797c037fc15e34d0511a4423e"
+                "reference": "dc06ec4f106568fcd79be56e2574a51759d73f67"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/giggsey/libphonenumber-for-php/zipball/f50b45cc50d9058797c037fc15e34d0511a4423e",
-                "reference": "f50b45cc50d9058797c037fc15e34d0511a4423e",
+                "url": "https://api.github.com/repos/giggsey/libphonenumber-for-php/zipball/dc06ec4f106568fcd79be56e2574a51759d73f67",
+                "reference": "dc06ec4f106568fcd79be56e2574a51759d73f67",
                 "shasum": ""
             },
             "require": {
@@ -806,7 +806,7 @@
                 "pear/versioncontrol_git": "^0.5",
                 "phing/phing": "^2.7",
                 "phpunit/phpunit": "^4.8|^5.0",
-                "satooshi/php-coveralls": "^1.0",
+                "satooshi/php-coveralls": "^1.0|^2.0",
                 "symfony/console": "^2.8|^3.0"
             },
             "type": "library",
@@ -847,7 +847,7 @@
                 "phonenumber",
                 "validation"
             ],
-            "time": "2018-03-07T12:33:46+00:00"
+            "time": "2018-03-14T18:52:28+00:00"
         },
         {
             "name": "giggsey/locale",
@@ -900,16 +900,16 @@
         },
         {
             "name": "guzzlehttp/guzzle",
-            "version": "6.3.0",
+            "version": "6.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "f4db5a78a5ea468d4831de7f0bf9d9415e348699"
+                "reference": "68d0ea14d5a3f42a20e87632a5f84931e2709c90"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/f4db5a78a5ea468d4831de7f0bf9d9415e348699",
-                "reference": "f4db5a78a5ea468d4831de7f0bf9d9415e348699",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/68d0ea14d5a3f42a20e87632a5f84931e2709c90",
+                "reference": "68d0ea14d5a3f42a20e87632a5f84931e2709c90",
                 "shasum": ""
             },
             "require": {
@@ -919,7 +919,7 @@
             },
             "require-dev": {
                 "ext-curl": "*",
-                "phpunit/phpunit": "^4.0 || ^5.0",
+                "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.4",
                 "psr/log": "^1.0"
             },
             "suggest": {
@@ -928,7 +928,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "6.2-dev"
+                    "dev-master": "6.3-dev"
                 }
             },
             "autoload": {
@@ -961,7 +961,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2017-06-22T18:50:49+00:00"
+            "time": "2018-03-26T16:33:04+00:00"
         },
         {
             "name": "guzzlehttp/promises",
@@ -1218,16 +1218,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.6.11",
+            "version": "v5.6.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "195ba6a67bdad2a23105c7ab410cd43e0f20bb73"
+                "reference": "90ccb77a543ff063533083f427d5e655546afbad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/195ba6a67bdad2a23105c7ab410cd43e0f20bb73",
-                "reference": "195ba6a67bdad2a23105c7ab410cd43e0f20bb73",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/90ccb77a543ff063533083f427d5e655546afbad",
+                "reference": "90ccb77a543ff063533083f427d5e655546afbad",
                 "shasum": ""
             },
             "require": {
@@ -1236,7 +1236,7 @@
                 "erusev/parsedown": "~1.7",
                 "ext-mbstring": "*",
                 "ext-openssl": "*",
-                "league/flysystem": "~1.0",
+                "league/flysystem": "^1.0.8",
                 "monolog/monolog": "~1.12",
                 "nesbot/carbon": "^1.24.1",
                 "php": "^7.1.3",
@@ -1352,7 +1352,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2018-03-09T16:53:27+00:00"
+            "time": "2018-03-26T13:45:20+00:00"
         },
         {
             "name": "leaflet/leaflet",
@@ -1540,16 +1540,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "1.24.1",
+            "version": "1.25.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "ef12cbd8ba5ce624f0a6a95e0850c4cc13e71e41"
+                "reference": "cbcf13da0b531767e39eb86e9687f5deba9857b4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/ef12cbd8ba5ce624f0a6a95e0850c4cc13e71e41",
-                "reference": "ef12cbd8ba5ce624f0a6a95e0850c4cc13e71e41",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/cbcf13da0b531767e39eb86e9687f5deba9857b4",
+                "reference": "cbcf13da0b531767e39eb86e9687f5deba9857b4",
                 "shasum": ""
             },
             "require": {
@@ -1589,7 +1589,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2018-03-09T15:49:34+00:00"
+            "time": "2018-03-19T15:50:49+00:00"
         },
         {
             "name": "paragonie/random_compat",
@@ -1641,16 +1641,16 @@
         },
         {
             "name": "php-http/curl-client",
-            "version": "v1.7.0",
+            "version": "v1.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-http/curl-client.git",
-                "reference": "0972ad0d7d37032a52077a5cbe27cf370f2007d8"
+                "reference": "6341a93d00e5d953fc868a3928b5167e6513f2b6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-http/curl-client/zipball/0972ad0d7d37032a52077a5cbe27cf370f2007d8",
-                "reference": "0972ad0d7d37032a52077a5cbe27cf370f2007d8",
+                "url": "https://api.github.com/repos/php-http/curl-client/zipball/6341a93d00e5d953fc868a3928b5167e6513f2b6",
+                "reference": "6341a93d00e5d953fc868a3928b5167e6513f2b6",
                 "shasum": ""
             },
             "require": {
@@ -1667,7 +1667,7 @@
             },
             "require-dev": {
                 "guzzlehttp/psr7": "^1.0",
-                "php-http/client-integration-tests": "^0.5.1",
+                "php-http/client-integration-tests": "^0.6",
                 "phpunit/phpunit": "^4.8.27",
                 "zendframework/zend-diactoros": "^1.0"
             },
@@ -1693,7 +1693,7 @@
                 "curl",
                 "http"
             ],
-            "time": "2017-02-09T15:18:33+00:00"
+            "time": "2018-03-26T19:21:48+00:00"
         },
         {
             "name": "php-http/discovery",
@@ -1987,16 +1987,16 @@
         },
         {
             "name": "propaganistas/laravel-phone",
-            "version": "4.0.1",
+            "version": "4.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Propaganistas/Laravel-Phone.git",
-                "reference": "79b7901727a04cd45b9549335ce62cb2877cf68d"
+                "reference": "d059c1d034dd23ae9b5279c8389e4adc0ab1a153"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Propaganistas/Laravel-Phone/zipball/79b7901727a04cd45b9549335ce62cb2877cf68d",
-                "reference": "79b7901727a04cd45b9549335ce62cb2877cf68d",
+                "url": "https://api.github.com/repos/Propaganistas/Laravel-Phone/zipball/d059c1d034dd23ae9b5279c8389e4adc0ab1a153",
+                "reference": "d059c1d034dd23ae9b5279c8389e4adc0ab1a153",
                 "shasum": ""
             },
             "require": {
@@ -2047,7 +2047,7 @@
                 "phone",
                 "validation"
             ],
-            "time": "2018-03-08T06:39:29+00:00"
+            "time": "2018-03-22T12:54:31+00:00"
         },
         {
             "name": "psr/container",
@@ -3278,16 +3278,16 @@
         },
         {
             "name": "toin0u/geocoder-laravel",
-            "version": "4.0.6",
+            "version": "4.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/geocoder-php/GeocoderLaravel.git",
-                "reference": "853f1f43c40b5934cf48c5d0ae1dc879179fbe57"
+                "reference": "9b899cf4b9bb9e2873dfb65441dec8edfd0e9f3f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/geocoder-php/GeocoderLaravel/zipball/853f1f43c40b5934cf48c5d0ae1dc879179fbe57",
-                "reference": "853f1f43c40b5934cf48c5d0ae1dc879179fbe57",
+                "url": "https://api.github.com/repos/geocoder-php/GeocoderLaravel/zipball/9b899cf4b9bb9e2873dfb65441dec8edfd0e9f3f",
+                "reference": "9b899cf4b9bb9e2873dfb65441dec8edfd0e9f3f",
                 "shasum": ""
             },
             "require": {
@@ -3297,7 +3297,7 @@
                 "guzzlehttp/psr7": "*",
                 "illuminate/cache": "5.0 - 5.6",
                 "illuminate/support": "5.0 - 5.6",
-                "php": "^7.0",
+                "php": ">=7.1.3",
                 "php-http/curl-client": "^1.7",
                 "willdurand/geocoder": "^4.0"
             },
@@ -3309,9 +3309,9 @@
                 "geocoder-php/geoip2-provider": "^4.0",
                 "geocoder-php/maxmind-binary-provider": "^4.0",
                 "mockery/mockery": "0.9.*",
-                "orchestra/database": "3.6.x-dev@dev",
-                "orchestra/testbench": "^3.6.0",
-                "orchestra/testbench-browser-kit": "3.6.x-dev@dev",
+                "orchestra/database": "3.6.*",
+                "orchestra/testbench": "3.6.*",
+                "orchestra/testbench-browser-kit": "3.6.*",
                 "orchestra/testbench-dusk": "3.6.x-dev@dev",
                 "php-coveralls/php-coveralls": "*",
                 "phpunit/phpunit": "^7.0",
@@ -3355,7 +3355,7 @@
                 "geocoding",
                 "laravel"
             ],
-            "time": "2018-02-09T14:37:53+00:00"
+            "time": "2018-03-25T23:24:38+00:00"
         },
         {
             "name": "vlucas/phpdotenv",

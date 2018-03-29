@@ -30,7 +30,7 @@
              this.count = 0;
              self = this;
 
-             if (this.header_search.trim() != '') {
+             if (this.header_search.trim() !== '') {
                  axios.get('/api/search',{
                      params:{
                         q : self.header_search

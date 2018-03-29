@@ -1,9 +1,9 @@
-﻿@extends('layouts.master')
+@extends('layouts.master')
 @section('content')
 <section id="content">
   <div class="container">
     @include('layouts.partials._header',['headerText'=>'Все службы такси Урюпинска'])
-    
+
     <table class="table table-striped table-responsive-sm">
       <thead class="thead-light table-sm text-center">
         <tr>

@@ -6,13 +6,14 @@
   }
 }
 
-header{
+
+header.header {
   border-color: transparent;
   padding: 0;
   border-bottom: $navbar-border;
   background: rgba(237,237,237,0.88);
   height: 44px;
-  
+
   a.navbar-brand.text-hide{
     background-image: url('/images/logo.svg');
     width: 240px;
@@ -24,7 +25,7 @@ header{
   ul{
     list-style: none;
   }
-  
+
 }
 
 .navbar-custom {
@@ -51,21 +52,21 @@ header{
     display: flex;
     flex-direction: column;
   }
-  
+
   .tool-bar{
     float:left;
     //width: 75%;
     font-family: "Century Gothic", Futura, sans-serif;
     font-size: 0.833em;
-    
+
     border-left: $navbar-border;
     border-bottom: $navbar-border;
-    
+
     ul{
       list-style: none;
     }
   }
-    
+
   ul.navbar-nav{
     list-style: none;
     margin: 0;
@@ -81,12 +82,12 @@ header{
       @media (max-width: 767px) {
         width: 100%;
       }
-      
+
       &.last{
         border-right: $navbar-border;
       }
     }
-    
+
     &>li>a.nav-link{
       line-height: 48px;
       padding: 0 24px;
@@ -97,34 +98,34 @@ header{
   .nav-social{
     font-size: 14px;
   }
-  
+
   .nav-search{
     width: 50%;
     @media (max-width: 767px) {
       width: 100%;
     }
   }
-   
-  
+
+
   .navbar-nav{
     //width: 75%;
 
-    
+
     li{
-      
+
       ul.dropdown-menu{
         border: $navbar-border;
 
         &.show{
           background-color: #fff;
         }
-        
+
         li {
           width: 100%;
           border: none;
         }
       }
-      
+
       a, .dropdown-menu li a {
         font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
         text-transform: uppercase;
@@ -132,22 +133,22 @@ header{
         letter-spacing: 1px;
         color: white !important;
         background: transparent;
-        
+
         &:hover,&:focus {
           color: #fed136;
           outline: none;
         }
       }
-      
-      
+
+
       &.menu-citizens {
         @include navbar-colored-menu($citizens-bg);
       }
-      
+
       &.menu-business, &.menu-business.open {
         @include navbar-colored-menu($business-bg);
       }
-      
+
       &.menu-tourists, &.menu-tourists.open {
         @include navbar-colored-menu($tourists-bg);
       }
@@ -165,7 +166,7 @@ header{
   }
 
   .navbar-toggler {
-    
+
     background-color: $primary-color;
 
     @media (max-width: 767px){
@@ -178,7 +179,7 @@ header{
 
   .navbar-toggler-icon {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-  }  
+  }
 }
 
 

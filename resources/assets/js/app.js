@@ -9,6 +9,12 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+//require('quasar-framework/dist/quasar.mat.css');
+//require('quasar-extras/roboto-font');
+//import Quasar from 'quasar-framework';
+//import router from './router';
+
+//Vue.use(Quasar);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -17,7 +23,8 @@ window.Vue = require('vue');
 
 //Vue.component('example', require('./components/Example.vue'));
 Vue.component('header-search', require('./components/HeaderSearch.vue'));
+Vue.component('business-search', require('./components/BusinessSearch.vue'));
 
 const app = new Vue({
-    el: '#wrapper'
+    el: '#app'
 });

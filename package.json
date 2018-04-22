@@ -10,23 +10,32 @@
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
     },
     "dependencies": {
-        "@fortawesome/fontawesome": "^1.1.3",
-        "@fortawesome/fontawesome-free-brands": "^5.0.6",
-        "@fortawesome/fontawesome-free-regular": "^5.0.6",
-        "@fortawesome/fontawesome-free-solid": "^5.0.6",
+        "@fortawesome/fontawesome": "^1.1.5",
+        "@fortawesome/fontawesome-free-brands": "^5.0.9",
+        "@fortawesome/fontawesome-free-regular": "^5.0.9",
+        "@fortawesome/fontawesome-free-solid": "^5.0.9",
         "axios": "^0.15.3",
-        "bootstrap": "^4.0.0",
+        "babel-runtime": "^6.25.0",
+        "bootstrap": "^4.1.0",
         "leaflet": "^1.3.1",
+        "quasar-extras": "0.x",
+        "quasar-framework": "^0.15.10",
+        "vue": "^2.5.16",
+        "vue-router": "^2.7.0",
+        "vue-template-compiler": "^2.5.16",
         "vue2-leaflet": "0.0.58"
     },
     "devDependencies": {
         "babel-core": "^6.26.0",
         "cross-env": "^3.2.3",
-        "gulp-sass": "^3.1.0",
+        "gulp-sass": "^3.2.1",
         "jquery": "^3.3.1",
-        "laravel-mix": "0.*",
+        "laravel-mix": "^1.0",
         "lodash": "^4.17.4",
-        "popper.js": "^1.12.9",
-        "vue": "^2.5.7"
+        "popper.js": "^1.14.3",
+        "vue-style-loader": "^3.0.3",
+        "css-loader": "^0.28.0",
+        "stylus": "^0.54.5",
+        "stylus-loader": "^3.0.1"
     }
 }

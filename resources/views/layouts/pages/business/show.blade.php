@@ -26,13 +26,13 @@
             var marker = L.marker([{{$organisation->addresses[0]->lat}}, {{$organisation->addresses[0]->lon}}]).addTo(mymap);
             marker.bindPopup("{{$organisation->name}}<br>{{$organisation->addresses[0]->address}}").openPopup();
          </script>
-         
+
          <div class="row">
             <div class="col-12 col-sm-6">
                <dl class="row my-3 organisationData">
                   <dt class="col-sm-3">Адрес</dt>
                   <dd class="col-sm-9" itemprop="address">{{$organisation->addresses[0]->address}}</dd>
-                  
+
                   <dt class="col-sm-3">Телефоны</dt>
                   <dd class="col-sm-9 d-flex flex-column">
                   @foreach($phones as $phone)
@@ -43,17 +43,17 @@
                      <span><a href="{{phone($phone,'RU',\libphonenumber\PhoneNumberFormat::RFC3966)}}" itemprop="telephone">{{$phoneCityNumber}}</a></span>
                   @endforeach
                   </dd>
-                     
+
                   @if(count($emails))
                   <dt class="col-sm-3">E-mail</dt>
                   @foreach($emails as $email)<dd class="col-sm-9 d-flex flex-column"><span><a href="mailto:{{$email}}" itemprop="email">{{$email}}</a></span></dd>@endforeach
                   @endif
-      
+
                   @if(count($urls))
                   <dt class="col-sm-3">WWW</dt>
                   @foreach($urls as $url)<dd class="col-sm-9 d-flex flex-column"><span><a href="{{$url}}"  itemprop="url">{{$url}}</a></span></dd>@endforeach
                   @endif
-                  
+
                   <dt class="col-sm-3">В категориях:</dt>
                   <dd class="col-sm-9">
                   @foreach($organisation->categories as $category)
@@ -62,9 +62,9 @@
                   </dd>
                </dl>
             </div>
-            
+
             <div class="col-12 col-sm-6">
-               
+
             </div>
          </div>
          </article>

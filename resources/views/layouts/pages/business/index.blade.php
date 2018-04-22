@@ -8,24 +8,13 @@
 
       <div class="row">
         <div class="col-12 col-sm-9">
-          <form class="form-inline">
-            {{ csrf_field() }}
-            <div class="input-group input-group-lg w-100">
-                <input type="text" class="form-control" id="orgSearchName" placeholder="Поиск организации" />
-                <span class="input-group-append">
-                    <button class="btn btn-outline-default" type="button"><span class="fa fa-search"></span></button>
-                </span>
-            </div>
-          </form>
+          <business-search></business-search>
         </div>
         <div class="col col-sm-3">
-          <form>
-            {{ csrf_field() }}
             <button class="btn btn-primary btn-lg btn-block" type="button" aria-label="Добавить организацию"><i class="fa fa-plus-circle"></i> <span class="d-none d-xl-inline-block">Добавить организацию</span></button>
-          </form>
         </div>
       </div>
-  
+
       <div class="row">
         @foreach($cards as $card)
           <div class="col-12 col-md-6 col-lg-4">
@@ -51,8 +40,8 @@
           </div>
         @endforeach
       </div>
-      
-  
+
+
       <div class="d-none d-sm-block">
         <h3>Категории</h3>
         <ul>

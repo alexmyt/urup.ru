@@ -45,13 +45,13 @@
     <![endif]-->
 </head>
 <body id="page-top" class="index">
-    <div id="wrapper">
-        @include('layouts.partials._navigation')
+    <div id="app">
+      @include('layouts.partials._navigation')
 
-    @yield('content')
+      @yield('content')
+
+      @include('layouts.partials._footer')
     </div>
-
-    @include('layouts.partials._footer')
 
     @stack('footer_js')
     {{-- Load the application scripts --}}

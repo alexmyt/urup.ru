@@ -33,7 +33,8 @@ if (mix.inProduction()) {
     ]);
 }
 
-mix.copyDirectory('node_modules/font-awesome/fonts', 'public/fonts');
+//mix.copyDirectory('node_modules/font-awesome/fonts', 'public/fonts');
+
 
 
 mix.webpackConfig({
@@ -47,7 +48,7 @@ mix.webpackConfig({
     }
   },
   output: {
-//    chunkFilename: 'js/[name].[chunkhash].js',
-//    publicPath: mix.config.hmr ? '//localhost:8080' : '/'
+    chunkFilename: 'js/[name].[chunkhash].js',
+    publicPath: mix.config.hmr ? '//localhost:8080' : '/'
   }
 });

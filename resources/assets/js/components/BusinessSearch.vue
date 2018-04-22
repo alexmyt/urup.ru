@@ -1,9 +1,12 @@
 <template>
-   <div class="nav-search align-self-center order-1 order-md-2 my-2 my-md-0">
-      <input id="headerSearch" class="form-control search-query" type="search" autocomplete="off" v-model="header_search" placeholder="Поиск" aria-label="Поиск">
+   <div class="input-group input-group-lg w-100">
+      <input id="businessSearch" class="form-control search-query" type="search" autocomplete="off" v-model="business_search" placeholder="Поиск организации" aria-label="Поиск организации">
+      <span class="input-group-append">
+          <button class="btn btn-outline-default" type="button"><span class="fa fa-search"></span></button>
+      </span>
 
-      <ul id="headerSearchResults" v-cloak v-if="search_results" v-bind:style="{width: width+'px'}" class="inlineSearchWidget">
-         <li v-for="(result,key) in search_results" :id="key + 1" v-bind:class="[(key + 1 == count) ? activeClass : '', menuItem]">
+      <ul id="businessSearchResults" v-cloak v-if="business_search_results" v-bind:style="{width: width+'px'}" class="inlineSearchWidget">
+         <li v-for="(result,key) in business_search_results" :id="key + 1" v-bind:class="[(key + 1 == count) ? activeClass : '', menuItem]">
             <a class="text-truncate" v-bind:href="result.route">{{result.title}}</a>
             <span class="text-muted">{{result.subtitle}}</span>
          </li>
@@ -13,10 +16,11 @@
 
 <script>
    export default{
-      data: function(){
+      name: 'business-search',
+      data (){
          return {
-            header_search: '',
-            search_results: '',
+            business_search: '',
+            business_search_results: '',
             count: 0,
             width: 0,
             menuItem: 'menu-item px-2 d-flex flex-column',
@@ -25,19 +29,19 @@
       },
 
       methods: {
-         getSearch: _.debounce(function() {
-             this.search_results = '';
+         getSearchB: _.debounce(function() {
+             this.business_search_results = '';
              this.count = 0;
              self = this;
 
-             if (this.header_search.trim() !== '') {
+             if (this.business_search.trim() !== '') {
                  axios.get('/api/search',{
                      params:{
-                        q : self.header_search
+                        q : self.business_search
                      }
                  })
                 .then(function (response) {
-                   self.search_results = response.data;
+                   self.business_search_results = response.data;
                  })
                 .catch(function (error) {
                      console.log(error);
@@ -46,9 +50,9 @@
 
          }, 500),
 
-         selectResult: function(keyCode) {
+         selectResultB: function(keyCode) {
              // If down arrow key is pressed
-             if (keyCode == 40 && this.count < this.search_results.length) {
+             if (keyCode == 40 && this.count < this.business_search_results.length) {
                  this.count++;
              }
              // If up arrow key is pressed
@@ -62,9 +66,9 @@
              }
          },
 
-         clearData: function(e) {
-             if (e.target.id != 'headerSearch') {
-                 this.search_results = '',
+         clearDataB: function(e) {
+             if (e.target.id != 'businessSearch') {
+                 this.business_search_results = '',
                  this.count = 0;
              }
          }
@@ -74,18 +78,18 @@
       mounted: function() {
          self = this;
          // get width of search input for vue search widget on initial load
-         this.width = document.getElementById("headerSearch").offsetWidth;
+         this.width = document.getElementById("businessSearch").offsetWidth;
          // get width of search input for vue search widget when page resize
          window.addEventListener('resize', function(event){
-             self.width = document.getElementById('headerSearch').offsetWidth;
+             self.width = document.getElementById('businessSearch').offsetWidth;
          });
 
          // To clear vue search widget when click on body
          document.body.addEventListener('click',function (e) {
-            self.clearData(e);
+            self.clearDataB(e);
          });
 
-         document.getElementById('headerSearch').addEventListener('keydown', function(e) {
+         document.getElementById('businessSearch').addEventListener('keydown', function(e) {
              // check whether arrow keys are pressed
              if(_.includes([37, 38, 39, 40, 13], e.keyCode) ) {
                  if (e.keyCode === 38 || e.keyCode === 40) {
@@ -93,17 +97,17 @@
                      e.preventDefault();
                  }
 
-                 if (e.keyCode === 40 && self.search_results === "") {
+                 if (e.keyCode === 40 && self.business_search_results === "") {
                      // If post list is cleared and search input is not empty
                      // then call ajax again on down arrow key press
-                     self.getSearch();
+                     self.getSearchB();
                      return;
                  }
 
-                 self.selectResult(e.keyCode);
+                 self.selectResultB(e.keyCode);
 
              } else {
-                 self.getSearch();
+                 self.getSearchB();
              }
          });
       }

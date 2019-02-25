@@ -64,7 +64,7 @@
 
          clearData: function(e) {
              if (e.target.id != 'headerSearch') {
-                 this.search_results = '',
+                 this.search_results = '';
                  this.count = 0;
              }
          }

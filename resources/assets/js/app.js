@@ -9,12 +9,16 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
-//require('quasar-framework/dist/quasar.mat.css');
-//require('quasar-extras/roboto-font');
-//import Quasar from 'quasar-framework';
-//import router from './router';
-
+//import Quasar from 'quasar-framework/dist/umd/quasar.mat.umd.min';
+//import {QLayout,QFab,QFabAction,QBtn,QSearch} from 'quasar-framework/dist/quasar.mat.esm';
 //Vue.use(Quasar);
+
+//import Vuetify from 'vuetify';
+//Vue.use(Vuetify);
+
+import KeenUI from 'keen-ui';
+Vue.use(KeenUI);
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -26,5 +30,19 @@ Vue.component('header-search', require('./components/HeaderSearch.vue'));
 Vue.component('business-search', require('./components/BusinessSearch.vue'));
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    //data: function () {
+    //  return {
+    //    version: Quasar.version,
+    //    drawerState: true
+    //  }
+    //},
+    components: {
+    //    QLayout,QFab,QFabAction,QBtn,QSearch
+    },
+    //methods: {
+    //    launch: function (url) {
+    //      Quasar.utils.openURL(url)
+    //    }
+    //}
 });

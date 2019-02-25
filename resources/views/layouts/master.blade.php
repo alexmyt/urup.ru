@@ -53,7 +53,6 @@
       @include('layouts.partials._footer')
     </div>
 
-    @stack('footer_js')
     {{-- Load the application scripts --}}
     @if (app()->isLocal())
       <script src="{{ mix('js/app.js') }}"></script>
@@ -62,5 +61,6 @@
       <script src="{{ mix('js/vendor.js') }}"></script>
       <script src="{{ mix('js/app.js') }}"></script>
     @endif
+    @stack('footer_js')
 </body>
 </html>

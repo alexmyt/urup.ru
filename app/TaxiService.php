@@ -39,6 +39,22 @@ class TaxiService extends Model
   ];
   //
   
+
+  /**
+   * Виртуальные атрибуты
+   */
+  protected $appends = ['phone_html'];
+   
+  public function getPhoneHtmlAttribute(){
+    $phone = $this->phones[0];
+    $phone_rfc = phone($phone,'RU',\libphonenumber\PhoneNumberFormat::RFC3966);
+    $phone_local = phone($phone,'RU',\libphonenumber\PhoneNumberFormat::NATIONAL);
+    if (strpos($phone_local,'8 (844) 42') == 0) {
+      $phone_local = substr($phone_local,strlen($phone_local)-7,7);
+    }
+    return "<a href='$phone_rfc'>$phone_local</a>";
+  }
+
   public function getFormattedPhones($formatString = ''){
     
     

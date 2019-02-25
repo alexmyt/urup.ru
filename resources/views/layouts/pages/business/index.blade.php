@@ -8,10 +8,22 @@
 
       <div class="row">
         <div class="col-12 col-sm-9">
-          <business-search></business-search>
+          <ui-autocomplete
+              name="favourite_month"
+              label="Введите название организации"
+              floating-label
+              icon="search"
+              icon-position="left"
+          ></ui-autocomplete>
+
         </div>
         <div class="col col-sm-3">
-            <button class="btn btn-primary btn-lg btn-block" type="button" aria-label="Добавить организацию"><i class="fa fa-plus-circle"></i> <span class="d-none d-xl-inline-block">Добавить организацию</span></button>
+          <ui-button
+              icon="add"
+              size="large"
+          >Добавить организацию
+          </ui-button>
+            {{--<button class="btn btn-primary btn-lg btn-block" type="button" aria-label="Добавить организацию"><i class="fa fa-plus-circle"></i> <span class="d-none d-xl-inline-block">Добавить организацию</span></button>--}}
         </div>
       </div>
 
@@ -39,8 +51,12 @@
             </div>
           </div>
         @endforeach
-      </div>
 
+        <div class="col-12">
+
+         <ui-fab color="primary" icon="add" size="normal"></ui-fab>
+       </div>
+      </div>
 
       <div class="d-none d-sm-block">
         <h3>Категории</h3>
@@ -55,4 +71,5 @@
 
     </div> {{--container--}}
   </section>
+
 @endsection

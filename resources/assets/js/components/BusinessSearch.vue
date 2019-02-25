@@ -68,7 +68,7 @@
 
          clearDataB: function(e) {
              if (e.target.id != 'businessSearch') {
-                 this.business_search_results = '',
+                 this.business_search_results = '';
                  this.count = 0;
              }
          }

@@ -21,3 +21,5 @@ Route::get('/search', [
     'as' => 'api.search',
     'uses' => 'API\SearchController@search'
 ]);
+
+Route::resource('taxi','API\TaxiServiceAPIController');

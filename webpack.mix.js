@@ -48,7 +48,7 @@ mix.webpackConfig({
     }
   },
   output: {
-    chunkFilename: 'js/[name].[chunkhash].js',
+    chunkFilename: '[name].[chunkhash].js',
     publicPath: mix.config.hmr ? '//localhost:8080' : '/'
   }
 });

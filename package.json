@@ -21,11 +21,11 @@
         "leaflet": "^1.4.0",
         "quasar-extras": "0.x",
         "quasar-framework": "^0.15.15",
-        "vue": "^2.6.7",
+        "vue": "^2.6.8",
         "vue-router": "^2.7.0",
-        "vue-template-compiler": "^2.6.7",
+        "vue-template-compiler": "^2.6.8",
         "vue2-leaflet": "0.0.58",
-        "vuetify": "^1.5.2"
+        "vuetify": "^1.5.5"
     },
     "devDependencies": {
         "babel-core": "^6.26.3",
@@ -36,6 +36,9 @@
         "laravel-mix": "^4.0.14",
         "lodash": "^4.17.11",
         "popper.js": "^1.14.7",
+        "resolve-url-loader": "2.3.1",
+        "sass": "^1.17.2",
+        "sass-loader": "7.*",
         "stylus": "^0.54.5",
         "stylus-loader": "^3.0.1",
         "vue-style-loader": "^3.0.3"

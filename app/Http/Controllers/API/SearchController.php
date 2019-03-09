@@ -12,7 +12,7 @@ class SearchController extends Controller
 {
     public function search(Request $request){
         if(!$request->has('q')){
-            return ['error' => 'No query.'];
+            return response(400)->json(['error' => 'No query.']);
         }
         
         $searchTypes = $request->has('st') ? $request->input('st') : 'all';
@@ -28,7 +28,7 @@ class SearchController extends Controller
         }
         
         if (!$results->count())
-            return ['error' => 'No results found, please try with different keywords.'];
+            return response()->json(['error' => 'No results found, please try with different keywords.']);
         
         $results = $results->sortByDesc(function ($match) {
             return $match['weight'];
@@ -67,12 +67,14 @@ class SearchController extends Controller
         $matchids = array_keys($query['matches']);
         foreach ($matchids as $id){
             $attrs = $query['matches'][$id]['attrs'];
+            $route = str_replace(config('app.url'),'',route('organisation.show',$attrs['slug']));
             $result[$id] = array(
-                                 'route'    => route('organisation.show',$attrs['slug']),
-                                 'title'    => $attrs['name'],
-                                 'subtitle' => implode(', ',array($attrs['address'],$attrs['phone'])),
-                                 'weight'   => (int)$query['matches'][$id]['weight']
-                                 );
+              'type' => 'organisation',
+              'route' => $route,
+              'title' => $attrs['name'],
+              'subtitle' => implode(', ', array($attrs['address'], $attrs['phone'])),
+              'weight' => (int) $query['matches'][$id]['weight']
+            );
         }
         
         return $result;
@@ -106,11 +108,12 @@ class SearchController extends Controller
         foreach ($matchids as $id){
             $attrs = $query['matches'][$id]['attrs'];
             $result[$id] = array(
-                                 'route'    => route('taxi.show',$attrs['slug']),
-                                 'title'    => $attrs['name'],
-                                 'subtitle' => $attrs['phones'],
-                                 'weight'   => (int)$query['matches'][$id]['weight']
-                                 );
+              'type' => 'taxi',
+              'route' => route('taxi.show',$attrs['slug']),
+              'title' => $attrs['name'],
+              'subtitle' => $attrs['phones'],
+              'weight' => (int)$query['matches'][$id]['weight']
+            );
         }
         
         return $result;

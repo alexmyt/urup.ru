@@ -107,9 +107,10 @@ class SearchController extends Controller
         $matchids = array_keys($query['matches']);
         foreach ($matchids as $id){
             $attrs = $query['matches'][$id]['attrs'];
+            $route = str_replace(config('app.url'),'',route('taxi.show',$attrs['slug']));
             $result[$id] = array(
               'type' => 'taxi',
-              'route' => route('taxi.show',$attrs['slug']),
+              'route' => $route,
               'title' => $attrs['name'],
               'subtitle' => $attrs['phones'],
               'weight' => (int)$query['matches'][$id]['weight']

@@ -36,7 +36,7 @@ class Organisation extends Model
   
   public function contacts()
   {
-    return $this->hasMany('App\Contact');
+    return $this->morphToMany('App\Contact','contactowner');
   }
 
   public function addresses()

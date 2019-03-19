@@ -46,6 +46,9 @@ class TaxiService extends Model
   protected $appends = ['phone_html'];
    
   public function getPhoneHtmlAttribute(){
+
+    if (!is_array($this->phones) || count($this->phones) == 0 ) return "";
+
     $phone = $this->phones[0];
     $phone_rfc = phone($phone,'RU',\libphonenumber\PhoneNumberFormat::RFC3966);
     $phone_local = phone($phone,'RU',\libphonenumber\PhoneNumberFormat::NATIONAL);
@@ -57,6 +60,11 @@ class TaxiService extends Model
 
   public function getFormattedPhones($formatString = ''){
     
-    
   }
+
+  public function contacts()
+  {
+    return $this->morphToMany('App\Contact','contactowner');
+  }
+
 }

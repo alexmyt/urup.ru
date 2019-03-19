@@ -8,7 +8,13 @@ class Contact extends Model
 {
     protected $table='contacts';
     
-    public function organisation(){
-      return $this->belongsTo('App\Organisation');
+    public function organisations(){
+      //return $this->belongsTo('App\Organisation');
+      return $this->morphedByMany('App\Organisation','contactowner');
+    }
+
+    public function taxiservices()
+    {
+      return $this->morphedByMany('App\TaxiService','contactowner');
     }
 }

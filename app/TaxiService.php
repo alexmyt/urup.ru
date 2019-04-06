@@ -62,6 +62,11 @@ class TaxiService extends Model
     
   }
 
+  public function getRouteKeyName()
+  {
+    return 'slug';
+  }
+  
   public function contacts()
   {
     return $this->morphToMany('App\Contact','contactowner');

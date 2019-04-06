@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\TaxiService;
+use App\Http\Resources\TaxiServiceResource;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -47,9 +48,10 @@ class TaxiServiceAPIController extends Controller
      * @param  \App\TaxiService  $taxiService
      * @return \Illuminate\Http\Response
      */
-    public function show($slug)
+    public function show(TaxiService $taxiService)
     {
-        return TaxiService::whereSlug($slug)->firstOrFail();
+        //return TaxiService::whereSlug($slug)->firstOrFail();
+	return new TaxiServiceResource($taxiService);
     }
 
     /**

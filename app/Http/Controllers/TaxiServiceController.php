@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\TaxiService;
+use App\Http\Resources\TaxiServiceResource;
+//use App\Http\Resources\TaxiServicesResource;
 use Illuminate\Http\Request;
 
 class TaxiServiceController extends Controller
@@ -15,8 +17,11 @@ class TaxiServiceController extends Controller
      */
     public function index()
     {
-        $allTaxiServices= TaxiService::all();
-        return view('layouts.pages.transport.taxi.index',['allTaxiServices'=>$allTaxiServices]);
+        TaxiServiceResource::withoutWrapping();
+        return TaxiServiceResource::collection(TaxiService::with('contacts')->get());
+        //$allTaxiServices= TaxiService::all();
+        //return new TaxiServicesResource(TaxiService::with('contacts')->get());
+        //return view('layouts.pages.transport.taxi.index',['allTaxiServices'=>$allTaxiServices]);
     }
 
     /**
@@ -48,7 +53,13 @@ class TaxiServiceController extends Controller
      */
     public function show($slug)
     {
-        return view('layouts.pages.transport.taxi.show',['taxiService'=>TaxiService::findBySlugOrFail($slug)]);
+        //return view('layouts.pages.transport.taxi.show',['taxiService'=>TaxiService::findBySlugOrFail($slug)]);
+        TaxiServiceResource::withoutWrapping();
+
+        if (is_numeric($slug))
+            return new TaxiServiceResource(TaxiService::with('contacts')->findOrFail($slug));
+        elseif (is_string($slug))
+            return new TaxiServiceResource(TaxiService::with('contacts')->whereSlug($slug)->firstOrFail());
     }
 
     /**

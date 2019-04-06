@@ -22,4 +22,4 @@ Route::get('/search', [
     'uses' => 'API\SearchController@search'
 ]);
 
-Route::resource('taxi','API\TaxiServiceAPIController');
+Route::resource('taxi','TaxiServiceController');

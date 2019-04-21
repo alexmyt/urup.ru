@@ -14,17 +14,35 @@ class OrganisationController extends Controller
      */
     public function index()
     {
-        $cards = array(
-          array('id'=>59,'name'=>'Органы власти','icon'=>'https://maxcdn.icons8.com/office/PNG/40/City/parliament-40.png'),
-          array('id'=>57,'name'=>'Структуры ЖКХ','icon'=>'https://maxcdn.icons8.com/office/PNG/40/Household/plumbing-40.png'),
-          array('id'=>69,'name'=>'Здравоохранение','icon'=>'https://maxcdn.icons8.com/office/PNG/40/Healthcare/clinic-40.png','subs'=>[]),
-          array('id'=>76,'name'=>'Еда и отдых','icon'=>'https://maxcdn.icons8.com/office/PNG/40/City/restaurant-40.png'),
-          array('id'=>56,'name'=>'Гостиницы, отели','icon'=>'https://maxcdn.icons8.com/office/PNG/40/City/5_star_hotel-40.png'),
-          array('id'=>77,'name'=>'Туристические базы','icon'=>'https://maxcdn.icons8.com/office/PNG/40/Travel/camping_tent-40.png'),
-
-        );
-        return view('layouts.pages.business.index')->with('cards',collect($cards));
+      $cards = array(
+        array('id'=>59,'name'=>'Органы власти','icon'=>'https://maxcdn.icons8.com/office/PNG/40/City/parliament-40.png'),
+        array('id'=>57,'name'=>'Структуры ЖКХ','icon'=>'https://maxcdn.icons8.com/office/PNG/40/Household/plumbing-40.png'),
+        array('id'=>69,'name'=>'Здравоохранение','icon'=>'https://maxcdn.icons8.com/office/PNG/40/Healthcare/clinic-40.png','subs'=>[]),
+        array('id'=>76,'name'=>'Еда и отдых','icon'=>'https://maxcdn.icons8.com/office/PNG/40/City/restaurant-40.png'),
+        array('id'=>56,'name'=>'Гостиницы, отели','icon'=>'https://maxcdn.icons8.com/office/PNG/40/City/5_star_hotel-40.png'),
+        array('id'=>77,'name'=>'Туристические базы','icon'=>'https://maxcdn.icons8.com/office/PNG/40/Travel/camping_tent-40.png'),
+      );
+      return view('layouts.pages.business.index')->with('cards',collect($cards));
     }
+
+    /**
+     * List mostly searched organisations with first phone contact
+     * 
+     * @count - count of organisation to return
+     */
+    private function getMostlySearched($count=5,$category=''){
+      // \DB::enableQueryLog();
+      $result = Organisation::mostlySearched($count,$category)
+      ->with(
+        ['contacts' => function($query) {
+          $query->where('contact_type','=','phone');
+        }])
+        ->get();
+      // \Log::info(\DB::getQueryLog());
+
+      return $result;
+    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -55,7 +73,8 @@ class OrganisationController extends Controller
      */
     public function show($slug)
     {
-        $viewData = array(
+
+      $viewData = array(
             'organisation'  => Organisation::findBySlugOrFail($slug),
             'phones'        => array(),
             'emails'        => array(),

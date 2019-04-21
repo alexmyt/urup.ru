@@ -15,8 +15,9 @@ class Contactowners extends Migration
     {
         Schema::create('contactowners', function (Blueprint $table) {
             $table->increments('id');
-            $table->morph('contactowner');
+            $table->morphs('contactowner');
             $table->integer('contact_id');
+
         });
     }
 

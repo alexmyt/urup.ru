@@ -54,4 +54,18 @@ class Organisation extends Model
   public function inCategory($categoryId){
     return Category::find($categoryId)->organisations();
   }
+
+  /**
+   * List of mostly searched orgs
+   */
+  public function scopeMostlySearched($query, $count=5, $category=""){
+    if($category) {
+      return $query->whereHas('categories', function($query) use ($category){
+        $query->where('categories.id',$category);
+      })->take($count);
+    }
+
+    return $query->take($count);
+  }
+
 }

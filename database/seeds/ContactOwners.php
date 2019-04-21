@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use App\Contact;
 use App\TaxiService;
+use App\Organisation as Organisation;
 
 class ContactOwners extends Seeder
 {
@@ -16,11 +17,14 @@ class ContactOwners extends Seeder
         DB::table('contactowners')->truncate();
         $contacts = Contact::all();
         foreach ($contacts as $contact){
-            $cw = DB::table('contactowners')->insert([
-                'contactowner_type' => 'App\Organisation',
-                'contactowner_id' => $contact->organisation_id,
-                'contact_id' => $contact->id
-            ]);
+	    $organisation = Organisation::findOrFail($contact->organisation_id);
+	    $organisation->contacts()->attach($contact);
+	    $organisation->save();
+//            $cw = DB::table('contactowners')->insert([
+//                'contactowner_type' => 'App\Organisation',
+//                'contactowner_id' => $contact->organisation_id,
+//                'contact_id' => $contact->id
+//            ]);
         }
 
         foreach (App\TaxiService::all() as $taxiService){

@@ -22,7 +22,7 @@ class CreateContactsTable extends Migration
             $table->string('description')->nullable();
             $table->timestamp('verified_at')->nullable()->comment('Дата последней верификации контакта');
 
-           $table->foreign('organisation_id')->references('id')->on('organisations')->onDelete('cascade');
+//           $table->foreign('organisation_id')->references('id')->on('organisations')->onDelete('cascade');
         });
     }
 

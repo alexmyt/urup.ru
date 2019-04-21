@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace App\Http\Controllers\Api;
 
 use App\TaxiService;
 use App\Http\Resources\TaxiServiceResource;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
-class TaxiServiceAPIController extends Controller
+class TaxiServiceController extends Controller
 {
     
     /**
@@ -17,18 +17,7 @@ class TaxiServiceAPIController extends Controller
      */
     public function index()
     {
-        $allTaxiServices= TaxiService::all();
-        return $allTaxiServices;
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return TaxiServiceResource::collection(TaxiService::with('contacts')->get());
     }
 
     /**
@@ -48,21 +37,12 @@ class TaxiServiceAPIController extends Controller
      * @param  \App\TaxiService  $taxiService
      * @return \Illuminate\Http\Response
      */
-    public function show(TaxiService $taxiService)
+    public function show($slug)
     {
-        //return TaxiService::whereSlug($slug)->firstOrFail();
-	return new TaxiServiceResource($taxiService);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\TaxiService  $taxiService
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(TaxiService $taxiService)
-    {
-        //
+        if (is_numeric($slug))
+            return new TaxiServiceResource(TaxiService::with('contacts')->findOrFail($slug));
+        elseif (is_string($slug))
+            return new TaxiServiceResource(TaxiService::with('contacts')->whereSlug($slug)->firstOrFail());
     }
 
     /**

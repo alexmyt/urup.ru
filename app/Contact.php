@@ -76,6 +76,7 @@ class Contact extends Model
       $carrierMapper = \libphonenumber\PhoneNumberToCarrierMapper::getInstance();
       $carrierName = $carrierMapper->getNameForNumber(PhoneNumber::make($this->contact)->getPhoneNumberInstance(),'EN');
 
+      // lшbphonenumber don't know all carriers. Help him.
       if($carrierName == '' && $this->isMobilePhone) {
         if(preg_match('/\+798[78]/',$this->contact) === 1){
           return 'MTS';

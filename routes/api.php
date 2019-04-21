@@ -17,9 +17,15 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/search', [
-    'as' => 'api.search',
-    'uses' => 'API\SearchController@search'
-]);
+// Route::get('/search', [
+//     'as' => 'api.search',
+//     'uses' => 'Api\SearchController@search'
+// ]);
 
-Route::resource('taxi','TaxiServiceController');
+Route::namespace('Api')->group(function(){
+    Route::apiResource('taxiServices','TaxiServiceController');
+    Route::apiResource('organisations','OrganisationController');
+
+    Route::get('search','SearchController@search');
+});
+

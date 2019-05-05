@@ -5,7 +5,10 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Organisation;
 use App\Http\Resources\OrganisationResource;
+use App\Http\Resources\OrganisationResourceCollection;
 use App\Http\Controllers\Controller;
+use Spatie\QueryBuilder\QueryBuilder;
+use Spatie\QueryBuilder\Filter;
 
 class OrganisationController extends Controller
 {
@@ -18,9 +21,18 @@ class OrganisationController extends Controller
     {
       $request = Request::createFromGlobals();
       
+      // \DB::enableQueryLog();
       if ($request->has('card')){
-        return OrganisationResource::collection($this->getMostlySearched($request->input('count',5),$request->input('category')));
+        return new OrganisationResourceCollection($this->getMostlySearched($request->input('count',5),$request->input('category')));
+      }else{
+        $organisations = QueryBuilder::for(Organisation::class)
+            ->allowedIncludes(['contacts','addresses','categories'])
+            ->allowedFilters([Filter::exact('categories.id'),Filter::exact('id')])
+            ->paginate();
+
+        return new OrganisationResourceCollection($organisations);
       }
+      // \Log::info(\DB::getQueryLog());
     }
 
     /**
@@ -29,14 +41,12 @@ class OrganisationController extends Controller
      * @count - count of organisation to return
      */
     private function getMostlySearched($count=5,$category=''){
-      // \DB::enableQueryLog();
       $result = Organisation::mostlySearched($count,$category)
       ->with(
         ['contacts' => function($query) {
           $query->where('contact_type','=','phone');
         }])
         ->get();
-      // \Log::info(\DB::getQueryLog());
 
       return $result;
     }

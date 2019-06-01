@@ -18,7 +18,7 @@ class CreateOrganisationsTable extends Migration
             $table->timestamps();
             $table->softDeletes();
             $table->string('name')->comment('Наименоввание для человека');
-            $table->string('fullName')->comment('Полное наименование')->nullable();
+            $table->string('shortName')->comment('Короткое (народное) наименование')->nullable();
             $table->text('description')->comment('Описание организации')->nullable();
             $table->string('slug')->nullable();
         });

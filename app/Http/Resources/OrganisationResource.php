@@ -23,7 +23,7 @@ class OrganisationResource extends JsonResource
             'id' => (string) $this->id,
             'attributes' => [
                 'name' => (string) $this->name,
-                'fullName' =>(string) $this->fullName,
+                'shortName' =>(string) $this->shortName,
                 'description' =>(string) $this->description,
                 'slug' => $this->slug,
                 //'contacts' => ContactResource::collection($this->whenLoaded('contacts')),

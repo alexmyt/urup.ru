@@ -9,6 +9,8 @@ class Contact extends Model
 {
     protected $table='contacts';
 
+    protected $fillable=['contact_type','contact','description'];
+
     protected $appends=['isMobilePhone','isLocalPSTNPhone','phoneFormat_RFC','phoneFormat_National','phoneFormat_Local','phoneCarrier'];
     
     public function organisations(){

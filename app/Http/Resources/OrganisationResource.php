@@ -19,7 +19,7 @@ class OrganisationResource extends JsonResource
     {
         //return parent::toArray($request);
         return[
-            'type' => 'organisations',
+            'type' => 'organisation',
             'id' => (string) $this->id,
             'attributes' => [
                 'name' => (string) $this->name,
@@ -40,7 +40,8 @@ class OrganisationResource extends JsonResource
 
     public function with($request){
 
-        $includes = $this->whenLoaded('categories')->values();
+        $includes = new \Illuminate\Support\Collection;
+        $includes = $includes->merge($this->whenLoaded('categories')->values());
         $includes = $includes->merge($this->whenLoaded('contacts')->values());
         $includes = $includes->merge($this->whenLoaded('addresses')->values());
 
@@ -60,5 +61,9 @@ class OrganisationResource extends JsonResource
                     }
                 }),
         ];
+    }
+
+    public function withResponse($request, $response){
+        $response->header('Content-Type','application/vnd.api+json');
     }
 }

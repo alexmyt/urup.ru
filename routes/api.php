@@ -29,13 +29,20 @@ Route::namespace('Api')->group(function(){
     
     Route::middleware('auth:api')->group(function () {
         Route::post('/logout', 'AuthController@logout');
-	Route::get('/user', function (Request $request){
-	    return new App\Http\Resources\UserResource($request->user());
-	});
+        Route::get('/user', function (Request $request){
+            return new App\Http\Resources\UserResource($request->user());
+        });
     });
     
-    Route::apiResource('taxiServices','TaxiServiceController');
-    Route::apiResource('organisations','OrganisationController');
+    Route::middleware('header.jsonapi')->group(function () {
+        Route::apiResource('taxiServices','TaxiServiceController');
+        Route::apiResource('organisations','OrganisationController');
+        Route::post('/organisations/{id}/relationships', 'OrganisationController@relationshipsUpdate');
+        Route::get('/organisations/{id}/categories', 'OrganisationController@relatedCategories');
+        Route::get('/organisations/{id}/contacts', 'OrganisationController@relatedContacts');
+    
+        Route::apiResource('contacts','ContactController');
+    });
 
     Route::get('search','SearchController@search');
 });

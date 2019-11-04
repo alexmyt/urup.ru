@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Organisation;
 use App\Http\Resources\OrganisationResource;
 use App\Http\Resources\OrganisationResourceCollection;
+use App\Http\Resources\CategoryResourceCollection;
+use App\Http\Resources\ContactResourceCollection;
 use App\Http\Controllers\Controller;
 use Spatie\QueryBuilder\QueryBuilder;
 use Spatie\QueryBuilder\Filter;
@@ -27,7 +29,7 @@ class OrganisationController extends Controller
       }else{
         $organisations = QueryBuilder::for(Organisation::class)
             ->allowedIncludes(['contacts','addresses','categories'])
-            ->allowedFilters([Filter::exact('categories.id'),Filter::exact('id')])
+            ->allowedFilters([Filter::exact('categories.id'),Filter::exact('id'),'slug'])
             ->paginate();
 
         return new OrganisationResourceCollection($organisations);
@@ -71,10 +73,18 @@ class OrganisationController extends Controller
     public function show($slug)
     {
 
+      $organisation = QueryBuilder::for(Organisation::class)
+        ->allowedIncludes(['contacts','addresses','categories'])
+        ->allowedFilters([
+          Filter::exact('id'),
+          Filter::exact('categories.id'),
+        ])
+        ->with(['contacts','addresses','categories']);
+
       if (is_numeric($slug))
-          return new OrganisationResource(Organisation::with(['contacts','addresses','categories'])->findOrFail($slug));
+          return new OrganisationResource($organisation->findOrFail($slug));
       elseif (is_string($slug))
-          return new OrganisationResource(Organisation::with(['contacts','addresses','categories'])->whereSlug($slug)->firstOrFail());
+          return new OrganisationResource($organisation->whereSlug($slug)->firstOrFail());
     }
 
     /**
@@ -86,7 +96,13 @@ class OrganisationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $organisation = Organisation::findOrFail($id);
+
+      $attributes = $request->input('data.attributes');
+      $organisation->update($attributes);
+      //$organisation->save();
+
+      \Log::info('Organisation update',$request->toArray());
     }
 
     /**
@@ -99,4 +115,23 @@ class OrganisationController extends Controller
     {
         //
     }
-}
+
+    public function relationshipUpdate($id){
+      \Log::info('Relationships update',$request->input('data'));
+    }
+
+    public function relatedCategories($slug){
+      if (is_numeric($slug))
+          return new CategoryResourceCollection(Organisation::with('categories')->findOrFail($slug)->categories);
+      elseif (is_string($slug))
+          return new CategoryResourceCollection(Organisation::with('categories')->whereSlug($slug)->firstOrFail()->categories);
+    }
+
+    public function relatedContacts($slug){
+      if (is_numeric($slug))
+          return new ContactResourceCollection(Organisation::with('contacts')->findOrFail($slug)->contacts);
+      elseif (is_string($slug))
+          return new ContactResourceCollection(Organisation::with('contacts')->whereSlug($slug)->firstOrFail()->contacts);
+    }
+
+  }

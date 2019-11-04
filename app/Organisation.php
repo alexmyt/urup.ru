@@ -9,7 +9,7 @@ use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
 class Organisation extends Model
 {
   protected $table = 'organisations';
-  protected $fillable = ['name','description'];
+  protected $fillable = ['name','shortName','description','slug'];
 
   use Sluggable;
   use SluggableScopeHelpers;

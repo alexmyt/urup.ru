@@ -64,7 +64,7 @@ return [
     |
     */
 
-    'timezone' => 'Europe/Moscow',
+    'timezone' => 'Europe/Volgograd',
 
     /*
     |--------------------------------------------------------------------------

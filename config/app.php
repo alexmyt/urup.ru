@@ -171,7 +171,7 @@ return [
 
         Propaganistas\LaravelPhone\PhoneServiceProvider::class,
         Geocoder\Laravel\Providers\GeocoderService::class,
-        sngrl\SphinxSearch\SphinxSearchServiceProvider::class,
+        //sngrl\SphinxSearch\SphinxSearchServiceProvider::class,
 
 
         /*
@@ -186,7 +186,7 @@ return [
         /*
          * Development
         */
-        Orangehill\Iseed\IseedServiceProvider::class,
+        //Orangehill\Iseed\IseedServiceProvider::class,
 
     ],
 

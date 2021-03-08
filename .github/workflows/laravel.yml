@@ -34,6 +34,8 @@ jobs:
         DB_CONNECTION: sqlite
         DB_DATABASE: database/database.sqlite
       run: vendor/bin/phpunit
+    - name: Tests artifact
+      uses: actions/upload-artifact@v2
       with:
         name: laravel-log
         path: storage/logs/*.*

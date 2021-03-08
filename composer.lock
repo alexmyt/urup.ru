@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e47cb9d23546525a5ba26e6a141484a1",
+    "content-hash": "d962745b2a523185e13345130909ae84",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1597,28 +1597,6 @@
                 "jwt"
             ],
             "time": "2021-02-16T09:40:01+00:00"
-        },
-        {
-            "name": "leaflet/leaflet",
-            "version": "v1.4.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/aissasell/leaflet.git",
-                "reference": "7eadefcbd4d8bbb9af36a2b78186e6d068afa177"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/aissasell/leaflet/zipball/7eadefcbd4d8bbb9af36a2b78186e6d068afa177",
-                "reference": "7eadefcbd4d8bbb9af36a2b78186e6d068afa177",
-                "shasum": ""
-            },
-            "type": "library",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-2-Clause"
-            ],
-            "description": "an open-source JavaScript library for mobile-friendly interactive maps",
-            "time": "2019-03-23T14:27:52+00:00"
         },
         {
             "name": "league/event",
@@ -7008,5 +6986,6 @@
     "platform": {
         "php": ">=7.1.3"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "2.0.0"
 }

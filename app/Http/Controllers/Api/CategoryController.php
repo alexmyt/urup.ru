@@ -6,6 +6,9 @@ use App\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\CategoryResource;
+use App\Http\Resources\CategoryResourceCollection;
+use Spatie\QueryBuilder\QueryBuilder;
+use Spatie\QueryBuilder\AllowedInclude;
 
 class CategoryController extends Controller
 {
@@ -16,7 +19,11 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $categories = QueryBuilder::for(Category::class)
+            ->allowedIncludes(['organisations'])
+            ->get();
+
+        return new CategoryResourceCollection($categories);
     }
 
     /**

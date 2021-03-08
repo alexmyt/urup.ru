@@ -10,7 +10,7 @@ use App\Http\Resources\CategoryResourceCollection;
 use App\Http\Resources\ContactResourceCollection;
 use App\Http\Controllers\Controller;
 use Spatie\QueryBuilder\QueryBuilder;
-use Spatie\QueryBuilder\Filter;
+use Spatie\QueryBuilder\AllowedFilter;
 
 class OrganisationController extends Controller
 {
@@ -29,7 +29,7 @@ class OrganisationController extends Controller
       }else{
         $organisations = QueryBuilder::for(Organisation::class)
             ->allowedIncludes(['contacts','addresses','categories'])
-            ->allowedFilters([Filter::exact('categories.id'),Filter::exact('id'),'slug'])
+            ->allowedFilters([AllowedFilter::exact('categories.id'),AllowedFilter::exact('id'),'slug'])
             ->paginate();
 
         return new OrganisationResourceCollection($organisations);

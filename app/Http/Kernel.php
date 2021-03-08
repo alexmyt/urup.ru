@@ -42,6 +42,7 @@ class Kernel extends HttpKernel
             'throttle:60,1',
             'cors',
             'bindings',
+            \App\Http\Middleware\ApiDataLogger::class,
         ],
     ];
 

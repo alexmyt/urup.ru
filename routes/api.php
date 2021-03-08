@@ -42,6 +42,7 @@ Route::namespace('Api')->group(function(){
         Route::get('/organisations/{id}/contacts', 'OrganisationController@relatedContacts');
     
         Route::apiResource('contacts','ContactController');
+        Route::apiResource('categories','CategoryController');
     });
 
     Route::get('search','SearchController@search');

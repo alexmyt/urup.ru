@@ -21,13 +21,13 @@ class CreateTaxiServicesTable extends Migration
             $table->string('slug');
             $table->text('description')->comment('Описание службы');
             $table->string('phones',130)->comment('Номера телефонов');
-            $table->decimal('priceGettingDay',5,2)->comment('Стоимость посадки днем');
-            $table->decimal('priceGettingNight',5,2)->comment('Стоимость посадки ночью');
-            $table->decimal('pricePerKmIncityDay',5,2)->comment('Стоимость проезда по городу днем');
-            $table->decimal('pricePerKmIncityNight',5,2)->comment('Стоимость проезда по городу ночью');
-            $table->decimal('pricePerKmOutcityDay',5,2)->comment('Стоимость проезда за городом днем');
-            $table->decimal('pricePerKmOutcityNight',5,2)->comment('Стоимость проезда за городом ночью');
-            $table->decimal('priceWaitPerMinute',5,2)->comment('Стоимость минуты ожидания');
+            $table->decimal('priceGettingDay',5,2)->comment('Стоимость посадки днем')->nullable();
+            $table->decimal('priceGettingNight',5,2)->comment('Стоимость посадки ночью')->nullable();
+            $table->decimal('pricePerKmIncityDay',5,2)->comment('Стоимость проезда по городу днем')->nullable();
+            $table->decimal('pricePerKmIncityNight',5,2)->comment('Стоимость проезда по городу ночью')->nullable();
+            $table->decimal('pricePerKmOutcityDay',5,2)->comment('Стоимость проезда за городом днем')->nullable();
+            $table->decimal('pricePerKmOutcityNight',5,2)->comment('Стоимость проезда за городом ночью')->nullable();
+            $table->decimal('priceWaitPerMinute',5,2)->comment('Стоимость минуты ожидания')->nullable();
         });
     }
 

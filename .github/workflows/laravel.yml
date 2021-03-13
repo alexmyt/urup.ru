@@ -50,7 +50,18 @@ jobs:
         DB_DATABASE: database/database.sqlite
       run:
         php artisan migrate:fresh --seed
-      
+
+    - name: Cache yarn dependencies
+      uses: actions/cache@v1
+      with:
+        path: node_modules
+        key: yarn-${{ hashFiles('yarn.lock') }}
+
+    - name: Run yarn
+      run: |
+        yarn --version
+        yarn && yarn dev
+        
     - name: Execute tests (Unit and Feature tests) via PHPUnit
       env:
         APP_ENV: testing

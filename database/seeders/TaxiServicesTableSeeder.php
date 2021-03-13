@@ -28,6 +28,7 @@ class TaxiServicesTableSeeder extends Seeder
                 'name' => 'Алло',
                 'description' => 'Посадка: 30 рублей; Стоимость 1км: 12 рублей.',
                 'phones' => '["78444237575"]',
+                'slug' => 'allo',
             ),
             1 => 
             array (
@@ -39,6 +40,7 @@ class TaxiServicesTableSeeder extends Seeder
                 'description' => 'Раз-два-три
 Вторая строка',
                 'phones' => '["88444244344","89270646464","89608745454"]',
+                'slug' => 'beloe',
             ),
             2 => 
             array (
@@ -49,6 +51,7 @@ class TaxiServicesTableSeeder extends Seeder
                 'name' => 'Лидер',
                 'description' => 'По городу от 50 рублей',
                 'phones' => '["8444242701","89377280359","89044242301","89093835762"]',
+                'slug' => 'lider',
             ),
             3 => 
             array (
@@ -59,6 +62,7 @@ class TaxiServicesTableSeeder extends Seeder
                 'name' => 'Город',
                 'description' => 'По городу 30 рублей. Цена за 1км: 10 рублей.',
                 'phones' => '["88444246046","89376924434","89026514334","89889414434"]',
+                'slug' => 'gorod',
             ),
         ));
         

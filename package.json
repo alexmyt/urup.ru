@@ -15,16 +15,7 @@
         "@fortawesome/fontawesome-free-regular": "^5.0.13",
         "@fortawesome/fontawesome-free-solid": "^5.0.13",
         "axios": "^0.15.3",
-        "babel-runtime": "^6.25.0",
-        "bootstrap": "^4.4.1",
-        "keen-ui": "^1.2.1",
-        "quasar-extras": "0.x",
-        "quasar-framework": "^0.15.15",
-        "vue": "^2.6.11",
-        "vue-router": "^2.7.0",
-        "vue-template-compiler": "^2.6.11",
-        "vue2-leaflet": "0.0.58",
-        "vuetify": "^1.5.22"
+        "babel-runtime": "^6.25.0"
     },
     "devDependencies": {
         "babel-core": "^6.26.3",
@@ -39,7 +30,6 @@
         "sass": "^1.24.0",
         "sass-loader": "^7.3.1",
         "stylus": "^0.54.7",
-        "stylus-loader": "^3.0.1",
-        "vue-style-loader": "^3.0.3"
+        "stylus-loader": "^3.0.1"
     }
 }

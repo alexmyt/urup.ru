@@ -9,27 +9,12 @@
         "prod": "npm run production",
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
     },
-    "dependencies": {
-        "@fortawesome/fontawesome": "^1.1.8",
-        "@fortawesome/fontawesome-free-brands": "^5.0.13",
-        "@fortawesome/fontawesome-free-regular": "^5.0.13",
-        "@fortawesome/fontawesome-free-solid": "^5.0.13",
-        "axios": "^0.15.3",
-        "babel-runtime": "^6.25.0"
-    },
+    "dependencies": {},
     "devDependencies": {
-        "babel-core": "^6.26.3",
+        "axios": "^0.21",
         "cross-env": "^3.2.3",
-        "css-loader": "^0.28.0",
-        "gulp-sass": "^3.2.1",
-        "jquery": "^3.4.1",
         "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
-        "popper.js": "^1.16.0",
-        "resolve-url-loader": "2.3.1",
-        "sass": "^1.24.0",
-        "sass-loader": "^7.3.1",
-        "stylus": "^0.54.7",
-        "stylus-loader": "^3.0.1"
+        "postcss": "^8.1.14"
     }
 }

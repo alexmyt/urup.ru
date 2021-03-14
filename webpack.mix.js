@@ -1,6 +1,4 @@
-const path = require('path');
 const mix = require('laravel-mix');
-// const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 
 /*
  |--------------------------------------------------------------------------
@@ -8,47 +6,12 @@ const mix = require('laravel-mix');
  |--------------------------------------------------------------------------
  |
  | Mix provides a clean, fluent API for defining some Webpack build steps
- | for your Laravel application. By default, we are compiling the Sass
+ | for your Laravel applications. By default, we are compiling the CSS
  | file for the application as well as bundling up all the JS files.
  |
  */
 
-mix
-    .js('resources/assets/js/app.js', 'public/js')
-//    .js('resources/assets/js/font-awesome.js', 'public/js')
-    .sass('resources/assets/sass/app.scss', 'public/css')
-    .sass('resources/assets/sass/custom.scss', 'public/css')
-    .sourceMaps();
-//    .disableNotifications();
-
-if (mix.inProduction()) {
-    mix.version();
-    mix.extract([
-        'vue',
-        'axios',
-        'jquery',
-        'popper.js',
-        'bootstrap',
-        '@fortawesome/fontawesome'
+mix.js('resources/js/app.js', 'public/js')
+    .postCss('resources/css/app.css', 'public/css', [
+        //
     ]);
-}
-
-//mix.copyDirectory('node_modules/font-awesome/fonts', 'public/fonts');
-
-
-
-mix.webpackConfig({
-  plugins: [
-    // new BundleAnalyzerPlugin()
-  ],
-  resolve: {
-    extensions: ['.js', '.json', '.vue'],
-    alias: {
-      '~': path.join(__dirname, './resources/assets/js')
-    }
-  },
-  output: {
-    chunkFilename: '[name].[chunkhash].js',
-    publicPath: mix.config.hmr ? '//localhost:8080' : '/'
-  }
-});
